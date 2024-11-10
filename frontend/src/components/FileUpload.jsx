@@ -149,7 +149,7 @@ function FileUpload({showButton}) {
 
   const sendTextToServer = async () => {
     try {
-      const response = await axios.post("http://localhost:4000/resumeData", {
+      const response = await axios.post(`http://localhost:${process.env.REACT_APP_BACKEND_PORT}/resumeData`, {
         data: extractedText, // Send extracted text to the backend
       });
     
@@ -180,7 +180,7 @@ function FileUpload({showButton}) {
         className="block w-full text-base text-gray-700 border border-indigo-300 rounded-md p-3 mb-4 cursor-pointer focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
         onChange={extractText}
       />
-      <Link to="http://localhost:4000/aiResume">
+      <Link to={`http://localhost:${process.env.REACT_APP_BACKEND_PORT}/aiResume`}>
         <button
           onClick={sendTextToServer}
           className="w-full py-3 bg-indigo-600 text-white font-semibold text-lg rounded-md hover:bg-indigo-700 transition-all duration-300 ease-in-out"

@@ -5,3 +5,4 @@ backend/node_modules/
 
 #secret key
 backend/.env
+frontend/.env

@@ -6,40 +6,48 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0;
-    font-family: sans-serif;
-    background: linear-gradient(to bottom, #e0eafc, #cfdef3);
+    font-family: 'Poppins', sans-serif; /* More elegant font */
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
 }
   
 /* Heading Styling */
 h1 {
-    font-size: 2.5rem;
-    font-weight: 800;
+    font-size: 2.8rem;
+    font-weight: 900;
     color: #4f46e5;
     margin-bottom: 1.5rem;
     text-align: center;
     animation: fadeIn 1s ease-in-out;
+    text-shadow: 2px 2px 6px rgba(79, 70, 229, 0.2);
 }
   
 /* Textarea Styling */
 textarea {
     width: 80%;
-    max-width: 1200px;
-    min-height: 550px; /* Set minimum height for the textarea */
-    height: auto;
-    padding: 1rem;
+    max-width: 1000px;
+    min-height: 550px;
+    padding: 1.2rem;
     font-size: 1.1rem;
     color: #4a5568;
     background-color: #f7fafc;
     border: 2px solid #4f46e5;
-    border-radius: 8px;
+    border-radius: 12px;
     outline: none;
     resize: none;
-    overflow-y: auto; /* Allow vertical scrolling */
-    transition: all 0.3s ease;
-    animation: textReveal 2s ease forwards;
+    overflow-y: auto;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease, box-shadow 0.3s ease;
     opacity: 0;
+    animation: textReveal 2s ease forwards;
 }
-  
+
+textarea:focus {
+    border-color: #6366f1;
+    box-shadow: 0px 8px 25px rgba(99, 102, 241, 0.2);
+    background-color: #edf2f7;
+    transform: scale(1.01);
+}
+
 /* Animations */
 @keyframes fadeIn {
     from {
@@ -59,6 +67,6 @@ textarea {
     }
     to {
         opacity: 1;
-        max-height: 500px; /* Maximum height for the textarea */
+        max-height: 500px;
     }
 }

@@ -20,7 +20,7 @@ export default function InputBox({ setInputBox }) {
         if (inputValue.length > 20) {
 
             try {
-                const response = await axios.post(`${process.env.REACT_APP_BACKEND_PORT}/process`, {
+                const response = await axios.post(`http://localhost:${process.env.REACT_APP_BACKEND_PORT}/process`, {
                     data: inputValue,
                 });
                 setOutputValue(response.data); // Set the output with the response data

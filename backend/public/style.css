@@ -15,7 +15,7 @@ h1 {
     font-size: 2.8rem;
     font-weight: 900;
     color: #4f46e5;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.1rem;
     text-align: center;
     animation: fadeIn 1s ease-in-out;
     text-shadow: 2px 2px 6px rgba(79, 70, 229, 0.2);
@@ -25,7 +25,7 @@ h1 {
 textarea {
     width: 80%;
     max-width: 1000px;
-    min-height: 550px;
+    min-height: 520px;
     padding: 1.2rem;
     font-size: 1.1rem;
     color: #4a5568;

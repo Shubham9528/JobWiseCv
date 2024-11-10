@@ -1,124 +1,3 @@
-// import React, { useState } from "react";
-// import axios from "axios";
-// import pdfToText from "react-pdftotext";
-// import { Link } from 'react-router-dom';
-
-// function FileUpload({ showButton, setAiResponse2 }) {
-//     const [extractedText, setExtractedText] = useState("");
-
-//     function extractText(event) {
-//         const file = event.target.files[0];
-//         if (file && file.type === "application/pdf") {
-//             pdfToText(file)
-//                 .then((text) => {
-//                     setExtractedText(text);
-//                 })
-//                 .catch((error) => {
-//                     alert("Failed to extract text from PDF", error);
-//                 });
-//         } else {
-//             alert("Please upload a valid PDF file");
-//         }
-//     }
-
-//     const sendTextToServer = async () => {
-//         try {
-//             const response = await axios.post("http://localhost:4000/resumeData", {
-//                 data: extractedText,
-//             });
-//             setAiResponse2("Shubham shinde"); // Set the received data to aiResponse2
-//             setAiResponse2("Server Response:", response.data);
-            
-//         } catch (error) {
-//             console.log("Error sending text to the server:", error);
-//         }
-//     };
-
-//     return (
-//         <div>
-//             {showButton && (
-//                 <>
-//                     <label htmlFor="myfile">Upload resume:</label>
-//                     <input
-//                         type="file"
-//                         id="myfile"
-//                         name="myfile"
-//                         onChange={extractText}
-//                     />
-//                     <Link to="http://localhost:4000/resumeData">
-//                         <button onClick={sendTextToServer}>Upload File</button>
-//                     </Link>
-//                 </>
-//             )}
-//         </div>
-//     );
-// }
-
-// export default FileUpload;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useState } from "react";
 import axios from "axios";
 import pdfToText from "react-pdftotext";
@@ -149,7 +28,7 @@ function FileUpload({showButton}) {
 
   const sendTextToServer = async () => {
     try {
-      const response = await axios.post(`http://localhost:${process.env.REACT_APP_BACKEND_PORT}/resumeData`, {
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_PORT}/resumeData`, {
         data: extractedText, // Send extracted text to the backend
       });
     
@@ -180,7 +59,7 @@ function FileUpload({showButton}) {
         className="block w-full text-base text-gray-700 border border-indigo-300 rounded-md p-3 mb-4 cursor-pointer focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
         onChange={extractText}
       />
-      <Link to={`http://localhost:${process.env.REACT_APP_BACKEND_PORT}/aiResume`}>
+      <Link to={`${process.env.REACT_APP_BACKEND_PORT}/aiResume`}>
         <button
           onClick={sendTextToServer}
           className="w-full py-3 bg-indigo-600 text-white font-semibold text-lg rounded-md hover:bg-indigo-700 transition-all duration-300 ease-in-out"

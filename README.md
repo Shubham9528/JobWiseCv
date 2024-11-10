@@ -2,6 +2,14 @@
 
 Welcome to **JobWiseCV.ai**! This web application leverages AI to help users optimize their resumes for ATS (Applicant Tracking System) compatibility. It analyzes job descriptions to extract crucial keywords, automatically adjusts resumes to include relevant achievements, and presents a refined document, enhancing job-seekers' chances of getting noticed by recruiters.
 
+![image](https://github.com/user-attachments/assets/7d873d0f-7ba9-44cd-aee6-59785caf6d5c)
+![image](https://github.com/user-attachments/assets/2c47917d-1f3a-4798-812c-97a9975917b4)
+![image](https://github.com/user-attachments/assets/beafab4f-5465-4959-b02b-452ac74e0919)
+![image](https://github.com/user-attachments/assets/9788f8e5-2e7d-450b-b171-7095913ed934)
+
+
+
+
 ## Table of Contents 📑
 - [Features](#features)
 - [Tech Stack](#tech-stack)

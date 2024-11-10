@@ -1,0 +1,64 @@
+/* General Styling */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to bottom, #e0eafc, #cfdef3);
+}
+  
+/* Heading Styling */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #4f46e5;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+  
+/* Textarea Styling */
+textarea {
+    width: 80%;
+    max-width: 1200px;
+    min-height: 550px; /* Set minimum height for the textarea */
+    height: auto;
+    padding: 1rem;
+    font-size: 1.1rem;
+    color: #4a5568;
+    background-color: #f7fafc;
+    border: 2px solid #4f46e5;
+    border-radius: 8px;
+    outline: none;
+    resize: none;
+    overflow-y: auto; /* Allow vertical scrolling */
+    transition: all 0.3s ease;
+    animation: textReveal 2s ease forwards;
+    opacity: 0;
+}
+  
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes textReveal {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 500px; /* Maximum height for the textarea */
+    }
+}

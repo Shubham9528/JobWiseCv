@@ -1,0 +1,25 @@
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font: 1rem sans-serif;
+}
+.InputBoxContainer
+{
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  
+}
+.inputform
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  justify-content: center;
+  
+}
+

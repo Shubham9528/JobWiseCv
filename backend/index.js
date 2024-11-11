@@ -77,6 +77,7 @@ app.post('/resumeData', async (req, res) => {
 app.get('/aiResume', (req, res) => {
     try {
         res.render('aiResponseFile', { data: aiProcessResult });
+        log(aiProcessResult);
     } catch (error) {
         console.error(" Ejs File Rendering error:", error);
         res.status(500).send("Internal Server Error: Could not load the AI-generated resume.");

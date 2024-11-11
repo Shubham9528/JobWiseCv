@@ -100,7 +100,7 @@ export default function InputBox({ setInputBox }) {
 
         {/* Status and Submit Button */}
         <p className="mt-8 text-lg text-gray-700">
-          Status: <span className="font-semibold text-lg text-green-600">{status}</span>
+          Status: <span className="font-semibold text-lg text-green-600">{process.env.REACT_APP_BACKEND_PORT+"--"+status}</span>
         </p>
         <button
           type="submit"

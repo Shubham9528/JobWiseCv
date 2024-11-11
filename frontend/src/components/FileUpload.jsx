@@ -32,7 +32,7 @@ function FileUpload({showButton}) {
         data: extractedText, // Send extracted text to the backend
       });
     
-     console.log("Server Response:", response.data);
+    //  console.log("Server Response:", response.data);
           
    // Update state with server response
    

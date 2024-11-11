@@ -82,12 +82,7 @@ app.get('/aiResume', (req, res) => {
     //     console.error(" Ejs File Rendering error:", error);
     //     res.status(500).send("Internal Server Error: Could not load the AI-generated resume.");
     // }
-
-    if (!aiProcessResult) {
-        res.send("Processing... Please refresh in a moment.");
-    } else {
-        res.render('aiResponseFile', { data: aiProcessResult });
-    }
+res.send("Shubham shinde");
 });
 
 // Start the Express server

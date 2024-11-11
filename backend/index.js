@@ -18,7 +18,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 // Prompts
-const prompt1 = "What are the keywords in this job description? Rank the keyword from greatest importance to least importance according to job description provide only keywords:";
+const prompt1 = "What are the keywords in this job description? Rank the keyword from greatest importance to least importance according to job description:";
 const prompt2 = "create a resume with the following information:";
 const prompt3 = "Update the resume to include bullet pointed achievement each. Include metrics and quantifiable data. Each section should include at least one keyword from resume. Here is the list of keywords to use:";
 

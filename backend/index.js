@@ -75,12 +75,18 @@ app.post('/resumeData', async (req, res) => {
 
 // Route to display AI-generated resume response
 app.get('/aiResume', (req, res) => {
-    try {
+    // try {
+    //     res.render('aiResponseFile', { data: aiProcessResult });
+    //     console.log(aiProcessResult);
+    // } catch (error) {
+    //     console.error(" Ejs File Rendering error:", error);
+    //     res.status(500).send("Internal Server Error: Could not load the AI-generated resume.");
+    // }
+
+    if (!aiProcessResult) {
+        res.send("Processing... Please refresh in a moment.");
+    } else {
         res.render('aiResponseFile', { data: aiProcessResult });
-        console.log(aiProcessResult);
-    } catch (error) {
-        console.error(" Ejs File Rendering error:", error);
-        res.status(500).send("Internal Server Error: Could not load the AI-generated resume.");
     }
 });
 

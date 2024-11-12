@@ -2,7 +2,7 @@ import React from "react";
 import App from './App';
 import AiResume from './components/AiResume';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import Footer from "./components/Footer";
 function MainApp() {
    
     return (
@@ -14,6 +14,8 @@ function MainApp() {
     </Routes>
 
     </BrowserRouter>
+
+    <Footer />
         </div>
     );
 }

@@ -61,7 +61,7 @@ export default function InputBox({ setInputBox }) {
     >
       <div className="space-y-8">
         {/* Job Description Textarea */}
-        <div>
+        { !showButton &&(<div>
           <label
             htmlFor="inputBox"
             className="block text-2xl font-semibold text-indigo-400 mb-3"
@@ -76,7 +76,7 @@ export default function InputBox({ setInputBox }) {
             onChange={handleInputChange}
             required
           />
-        </div>
+        </div>)}
   
         {/* AI Generated Keywords Textarea */}
         {showButton && (

@@ -26,14 +26,14 @@ function AiResume() {
     AI Generated Resume
   </h1>
   <h3 className="text-xl text-gray-200">
-  Now you can check for your ATS score{"  "} 
+  Update your resume accordingly and check your ATS score{"  "} 
   <a 
     href="https://skillsyncer.com/" 
     target="_blank" 
     rel="noopener noreferrer"
     className="text-indigo-500 hover:text-indigo-700 font-semibold transition-colors duration-300"
   >
-    Click here
+    Click Here
   </a>
 </h3>
   <textarea

@@ -102,7 +102,7 @@ export default function InputBox({ setInputBox }) {
       <p className="mt-8 text-lg text-gray-200">
         Status: <span className="font-semibold text-lg text-green-600">{status}</span>
       </p>
-      {! showButton &&(<button
+      {!showButton &&(<button
         type="submit"
         className="mt-8 w-full py-4 bg-indigo-600 text-white font-semibold text-xl rounded-xl hover:bg-indigo-700 transition-all duration-300 ease-in-out shadow-lg"
       >

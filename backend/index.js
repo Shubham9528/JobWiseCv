@@ -18,9 +18,9 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 // Prompts
-const prompt1 = process.env.PROMPT1
-const prompt2 = process.env.PROMPT2
-const prompt3 = process.env.PROMPT3
+const prompt1 = "What are the keywords in this job description? Rank the keyword from greatest importance to least importance according to job description:";
+const prompt2 = "create a resume with the following information:";
+const prompt3 = "Update the resume to include bullet pointed achievement each. Include metrics and quantifiable data. Each section should include at least one keyword from resume. Here is the list of keywords to use:";
 
 let resumeKeywords = "";
 let aiProcessResult = "AI in progress..., Please refresh in a moment.";
@@ -32,7 +32,7 @@ const genAI = new GoogleGenerativeAI(process.env.GENAI_API_KEY);
 async function genAICall(userInput, promptData) {
     try {
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", timeout: 10000 });
-        const prompt = promptData + ":" + userInput;
+        const prompt = promptData + " " + userInput;
 
         const result = await model.generateContent(prompt);
         return result.response.text(); // Return response data

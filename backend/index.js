@@ -66,7 +66,7 @@ app.post('/resumeData', async (req, res) => {
         aiProcessResult = await genAICall("keywords: " + resumeKeywords + " Resume: " + createResumeData, prompt3);
         
         res.render('aiResponseFile', { data: aiProcessResult });
-        console.log(aiProcessResult);
+        // console.log(aiProcessResult);
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: error.message });

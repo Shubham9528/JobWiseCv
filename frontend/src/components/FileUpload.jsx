@@ -78,6 +78,7 @@ function FileUpload({showButton}) {
         name="myfile"
         className="block w-full text-base text-gray-100 border border-gray-600 rounded-md p-3 mb-4 cursor-pointer focus:ring-4 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
         accept=".pdf"
+        placeholder="Upload"
         onChange={extractText}
       />
       

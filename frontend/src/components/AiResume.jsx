@@ -19,10 +19,23 @@ function AiResume() {
     }, []);
 
     return (
-        <div className="flex flex-col items-center p-8 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 min-h-screen text-gray-100 font-sans">
+        
+    <div className="flex flex-col items-center p-8 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 min-h-screen text-gray-100 font-sans">
+  
   <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 animate-pulse mb-6">
     AI Generated Resume
   </h1>
+  <h3 className="text-xl text-gray-200">
+  Now you can check for your ATS score{"  "} 
+  <a 
+    href="https://skillsyncer.com/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="text-indigo-500 hover:text-indigo-700 font-semibold transition-colors duration-300"
+  >
+    Click here
+  </a>
+</h3>
   <textarea
     name="outputBox"
     rows="20"

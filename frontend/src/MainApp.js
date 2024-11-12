@@ -1,6 +1,6 @@
 import React from "react";
 import App from './App';
-
+import AiResume from './components/AiResume';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function MainApp() {
@@ -10,7 +10,7 @@ function MainApp() {
     <BrowserRouter>
       <Routes>
       <Route path="/" element={<App/>} />
-      
+      <Route path="/aiResume" element={<AiResume />} />
     </Routes>
 
     </BrowserRouter>

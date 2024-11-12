@@ -74,16 +74,29 @@ app.post('/resumeData', async (req, res) => {
 });
 
 // Route to display AI-generated resume response
+// app.get('/aiResume', (req, res) => {
+//     // try {
+//     //     res.render('aiResponseFile', { data: aiProcessResult });
+//     //     console.log(aiProcessResult);
+//     // } catch (error) {
+//     //     console.error(" Ejs File Rendering error:", error);
+//     //     res.status(500).send("Internal Server Error: Could not load the AI-generated resume.");
+//     // }
+// res.send(aiProcessResult);
+// });
+
+
+
 app.get('/aiResume', (req, res) => {
-    // try {
-    //     res.render('aiResponseFile', { data: aiProcessResult });
-    //     console.log(aiProcessResult);
-    // } catch (error) {
-    //     console.error(" Ejs File Rendering error:", error);
-    //     res.status(500).send("Internal Server Error: Could not load the AI-generated resume.");
-    // }
-res.send(aiProcessResult);
+    try {
+        res.json({ data: aiProcessResult });
+        console.log("Sent AI Process Result to frontend:");
+    } catch (error) {
+        console.error("Error sending AI Process Result:", error);
+        res.status(500).send("Internal Server Error");
+    }
 });
+
 
 // Start the Express server
 app.listen(port, () => {

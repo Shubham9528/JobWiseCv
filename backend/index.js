@@ -23,7 +23,7 @@ const prompt2 = "create a resume with the following information:";
 const prompt3 = "Update the resume to include bullet pointed achievement each. Include metrics and quantifiable data. Each section should include at least one keyword from resume. Here is the list of keywords to use:";
 
 let resumeKeywords = "";
-let aiProcessResult = "AI in progress.... Please refresh in a moment.";
+let aiProcessResult = "";
 
 // Initialize Google Generative AI
 const genAI = new GoogleGenerativeAI(process.env.GENAI_API_KEY);

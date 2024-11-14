@@ -53,6 +53,9 @@ export default function InputBox({ setInputBox }) {
     <p className="text-xl text-gray-200 mb-8 max-w-4xl text-center animate-fadeIn delay-100">
       AI-driven resume generation tailored to job descriptions, enhancing your ATS performance.
     </p>
+    {/* <p className="text-base text-gray-200 mb-3 max-w-4xl text-center animate-fadeIn delay-100">
+    (ATS  is a software used by companies to shortlist resumes)
+    </p> */}
   
     {/* Form Container */}
     <form

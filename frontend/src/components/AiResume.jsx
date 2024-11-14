@@ -29,7 +29,7 @@ function AiResume() {
       <h3 className="text-xl text-gray-200 mb-3">
         Update your resume accordingly and check your ATS score{"  "}
         <a
-          href="https://skillsyncer.com/"
+          href="https://skillsyncer.com/?ref=RxLT-KQO8J"
           target="_blank"
           rel="noopener noreferrer"
           className="text-indigo-500 hover:text-indigo-700 font-semibold transition-colors duration-300"

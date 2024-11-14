@@ -18,7 +18,7 @@ const Footer = () => {
             
             {/* Copyright */}
             <p className="text-sm text-gray-400">
-                © {new Date().getFullYear()} Shubham shinde. All rights reserved.
+                Copyright &#169; Shubham shinde. All rights reserved {new Date().getFullYear()}.
             </p>
         </div>
     );

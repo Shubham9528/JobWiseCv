@@ -25,7 +25,7 @@ export default function InputBox({ setInputBox }) {
         });
         setOutputValue(response.data); // Set the output with the response data
         setShowButton(!showButton);
-        setStatus("These important keywords are extracted for your resume. Alternatively, create a resume using AI by clicking the upload button below.");
+        setStatus("These important keywords are extracted for your resume. Alternatively, create a resume using AI by clicking the button below.");
 
       } catch (error) {
         console.error("Error:", error);

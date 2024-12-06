@@ -9,7 +9,7 @@ function AiResume() {
       try {
         const response = await axios.get(`${process.env.REACT_APP_BACKEND_PORT}/aiResume`);
         setAiResponse(response.data.data);  // Store the received data in state
-        console.log(response.data.data);
+        // console.log(response.data.data);
         console.log("Received AI Process Result:");
       } catch (error) {
         console.error("Error fetching AI Process Result:", error);

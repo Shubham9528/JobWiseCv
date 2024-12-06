@@ -90,7 +90,7 @@ app.post('/resumeData', async (req, res) => {
 app.get('/aiResume', (req, res) => {
     try {
         res.json({ data: aiProcessResult });
-        console.log(aiProcessResult);
+        // console.log(aiProcessResult);
         console.log("Sent AI Process Result to frontend:");
     } catch (error) {
         console.error("Error sending AI Process Result:", error);

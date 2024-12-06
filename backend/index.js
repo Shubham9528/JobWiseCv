@@ -31,7 +31,7 @@ const genAI = new GoogleGenerativeAI(process.env.GENAI_API_KEY);
 // Gemini AI call function
 async function genAICall(userInput, promptData) {
     try {
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", timeout: 10000 });
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-8b"});
         const prompt = promptData + " " + userInput;
 
         const result = await model.generateContent(prompt);

@@ -21,17 +21,17 @@ app.use(express.static("public"));
 const prompt1 = "What are the keywords in this job description? Rank the keyword from greatest importance to least importance according to job description:";
 const prompt2 = "create a resume with the following information:";
 const prompt3 = "Update the resume to include bullet pointed achievement each. Include metrics and quantifiable data. Each section should include at least one keyword from resume. Here is the list of keywords to use:";
-
+const prompt4 = "Prepare 30 interview questions and answers for every question for the following resume:";
 let resumeKeywords = "";
 let aiProcessResult = "";
-
+let interviewQuestions = "";
 // Initialize Google Generative AI
 const genAI = new GoogleGenerativeAI(process.env.GENAI_API_KEY);
 
 // Gemini AI call function
 async function genAICall(userInput, promptData) {
     try {
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-8b"});
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-8b" });
         const prompt = promptData + " " + userInput;
 
         const result = await model.generateContent(prompt);
@@ -44,13 +44,13 @@ async function genAICall(userInput, promptData) {
 
 // Route to check server status
 app.get('/', (req, res) => {
-    res.send('<h1>Backend Server is running!</h1>');
+    res.send('<h1>Backend Server is running!!!!</h1>');
 });
 
 // Route to handle keyword extraction
 app.post('/process', async (req, res) => {
     try {
-        const processResult = await genAICall(req.body.data, prompt1); 
+        const processResult = await genAICall(req.body.data, prompt1);
         resumeKeywords = processResult; // Store keywords for later use
         res.json(processResult);
     } catch (error) {
@@ -61,12 +61,13 @@ app.post('/process', async (req, res) => {
 
 // Route to handle resume data processing
 app.post('/resumeData', async (req, res) => {
-    try {    
+    try {
         const createResumeData = await genAICall(req.body.data, prompt2);
         aiProcessResult = await genAICall("keywords: " + resumeKeywords + " Resume: " + createResumeData, prompt3);
-        
-        res.render('aiResponseFile', { data: aiProcessResult });
+        interviewQuestions = await genAICall(aiProcessResult, prompt4);
+        // res.render('aiResponseFile', { data: aiProcessResult });
         // console.log(aiProcessResult);
+        res.json({ status:"success" });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: error.message });
@@ -89,7 +90,7 @@ app.post('/resumeData', async (req, res) => {
 
 app.get('/aiResume', (req, res) => {
     try {
-        res.json({ data: aiProcessResult });
+        res.json({ data: aiProcessResult, questions: interviewQuestions });
         // console.log(aiProcessResult);
         console.log("Sent AI Process Result to frontend:");
     } catch (error) {

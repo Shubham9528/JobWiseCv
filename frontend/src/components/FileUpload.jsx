@@ -1,45 +1,47 @@
 import React, { useState } from "react";
 import axios from "axios";
 import pdfToText from "react-pdftotext";
-import { Link } from 'react-router-dom';
-// import { useNavigate } from "react-router-dom";
-function FileUpload({ showButton }) {
-  const [extractedText, setExtractedText] = useState("");  // State to store the extracted text
-  const [file, setFile] = useState(false);
+import { useNavigate } from "react-router-dom";
 
-  // const navigate = useNavigate();
+function FileUpload({ showButton }) {
+  const [extractedText, setExtractedText] = useState(""); // State to store extracted text
+  const [isProcessing, setIsProcessing] = useState(false); // Show processing animation
+  const [file, setFile] = useState(false); // Check if file is uploaded
+  const navigate = useNavigate();
 
   function extractText(event) {
     const file = event.target.files[0]; // Get the file from the input field
-    if (file && file.type === "application/pdf" && file !== null) {
-      // Only process PDF files
+    if (file && file.type === "application/pdf") {
       setFile(true);
       pdfToText(file)
         .then((text) => {
-          //   console.log("Extracted text:", text); // Log the extracted text
           setExtractedText(text); // Update state with extracted text
         })
         .catch((error) => {
-          alert("Failed to extract text from pdf", error);
+          alert("Failed to extract text from PDF:", error);
         });
     } else {
-      alert("Please upload a valid PDF file");
+      alert("Please upload a valid PDF file.");
     }
   }
 
   const sendTextToServer = async () => {
     try {
-      await axios.post(`${process.env.REACT_APP_BACKEND_PORT}/resumeData`, {
+      setIsProcessing(true); // Show processing animation
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_PORT}/resumeData`, {
         data: extractedText, // Send extracted text to the backend
       });
 
-      //  console.log("Server Response:", response.data);
-
-      // Update state with server response
-
-      //   navigate("/resume");
+      if (response.data.status === "success") {
+        navigate("/aiResume"); // Redirect on success
+      } else {
+        setIsProcessing(false); // Stop processing on failure
+        alert("AI processing failed. Please try again.");
+      }
     } catch (error) {
-      console.log("Error sending text to the server:", error);
+      setIsProcessing(false); // Stop processing if an error occurs
+      console.error("Error sending text to the server:", error);
+      alert("Error occurred. Please try again.");
     }
   };
 
@@ -83,21 +85,15 @@ function FileUpload({ showButton }) {
             onChange={extractText}
           />
 
-          {file ? (
-            <Link to={`/aiResume`}>
-              <button
-                onClick={sendTextToServer}
-                className="w-full py-3   rounded-md bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 bg-clip-border hover:bg-indigo-700 transition-all duration-300 ease-in-out"
-              >
-                <span className="text-black font-black animate-pulse text-lg">
-                  AI Generate
-                </span>
-              </button>
-            </Link>
+          {isProcessing ? (
+            <div className="flex flex-col items-center">
+              <div className="loader border-t-4 border-b-4 border-indigo-500 rounded-full w-12 h-12 animate-spin"></div>
+              <p className="text-gray-300 mt-3 text-lg">AI is processing... Please wait.</p>
+            </div>
           ) : (
             <button
-              onClick={() => alert("Please upload a valid PDF file")}
-              className="w-full py-3   rounded-md bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 bg-clip-border hover:bg-indigo-700 transition-all duration-300 ease-in-out"
+              onClick={file ? sendTextToServer : () => alert("Please upload a valid PDF file.")}
+              className="w-full py-3 rounded-md bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 bg-clip-border hover:bg-indigo-700 transition-all duration-300 ease-in-out"
             >
               <span className="text-black font-black animate-pulse text-lg">
                 AI Generate

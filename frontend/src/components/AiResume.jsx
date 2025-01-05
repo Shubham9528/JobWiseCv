@@ -5,9 +5,6 @@ function AiResume() {
   const [aiResponse, setAiResponse] = useState(
     "AI is analyzing your input, please wait... or refresh the page"
   );
-  const [interviewQuestions, setInterviewQuestions] = useState(
-    "Fetching interview preparation questions, please wait... or refresh the page"
-  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,11 +15,9 @@ function AiResume() {
   
         // Clean up data to remove unwanted characters (* and #)
         const cleanedResume = response.data.data.replace(/[*#]/g, "");
-        const cleanedQuestions = response.data.questions.replace(/[*#]/g, "");
   
         // Update state with cleaned data
         setAiResponse(cleanedResume);
-        setInterviewQuestions(cleanedQuestions);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -57,19 +52,6 @@ function AiResume() {
         value={aiResponse}
         readOnly
         className="w-full p-4 text-lg rounded-lg bg-gray-900 text-gray-100 border border-gray-600 shadow-xl resize-none focus:outline-none focus:ring-4 focus:ring-indigo-500 transition duration-300 scrollbar-thin scrollbar-thumb-indigo-500 scrollbar-track-gray-700 hover:scrollbar-thumb-indigo-400"
-      />
-
-      {/* Interview Preparation Questions Section */}
-      <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 animate-pulse mt-10 mb-4">
-        Interview Preparation Questions
-      </h1>
-      <textarea
-        name="interviewBox"
-        rows="20"
-        cols="50"
-        value={interviewQuestions}
-        readOnly
-        className="w-full p-4 text-lg rounded-lg bg-gray-900 text-gray-100 border border-gray-600 shadow-xl resize-none focus:outline-none focus:ring-4 focus:ring-green-500 transition duration-300 scrollbar-thin scrollbar-thumb-green-500 scrollbar-track-gray-700 hover:scrollbar-thumb-green-400"
       />
     </div>
   );

@@ -33,11 +33,7 @@ export default function InputBox({ setInputBox }) {
         );
       } catch (error) {
         console.error("Error:", error);
-        if (error.response.status === 500 || error.response.status === 503) {
-          setStatus("Service is currently overloaded. Please try again later.");
-      } else {
-          setStatus("An error occurred. Please try again.");
-      }
+        setStatus("AI processing failed. Please try again.");
        
       } finally {
         setIsLoading(false); // Hide loading animation

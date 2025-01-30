@@ -29,24 +29,24 @@ let interviewQuestions = "";
 const genAI = new GoogleGenerativeAI(process.env.GENAI_API_KEY);
 const openai = new OpenAI();//creating openAI instance
 //******************************* */ Gemini AI call function*****************************************/
-// async function genAICall(userInput, promptData) {
-//     try {
-//         const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
-//         const prompt = promptData + " " + userInput;
+async function genAICall(userInput, promptData) {
+    try {
+        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
+        const prompt = promptData + " " + userInput;
 
-//         const result = await model.generateContent(prompt);
-//         return result.response.text(); // Return response data
-//     } catch (error) {
-//         console.error("Error fetching data from OpenAI:", error);
+        const result = await model.generateContent(prompt);
+        return result.response.text(); // Return response data
+    } catch (error) {
+        console.error("Error fetching data from OpenAI:", error);
 
-//         // Check if the error status is 503 (Service Unavailable)
-//         if (error.response.status === 503 || error.response.status === 500) {
-//             throw new Error(error.response.status); // Throws only the status code
-//         }
+        // Check if the error status is 503 (Service Unavailable)
+        if (error.response.status === 503 || error.response.status === 500) {
+            throw new Error(error.response.status); // Throws only the status code
+        }
 
-//         throw new Error("Failed to process the request");
-//     }
-// }
+        throw new Error("Failed to process the request");
+    }
+}
 
 // ******************************* */ Gemini AI call function END*****************************************/
 
@@ -57,25 +57,25 @@ const openai = new OpenAI();//creating openAI instance
 //******************************* */ OpenAi Chat GPT call function*****************************************/
 
 
-async function genAICall(userInput, promptData) {
-    try {
-        const messages = [
-            { role: "system", content: promptData },
-            { role: "user", content: userInput }
-        ];
+// async function genAICall(userInput, promptData) {
+//     try {
+//         const messages = [
+//             { role: "system", content: promptData },
+//             { role: "user", content: userInput }
+//         ];
 
-        const chat = await openai.chat.completions.create({
-            model: 'gpt-3.5-turbo',
-            messages: messages,
+//         const chat = await openai.chat.completions.create({
+//             model: 'gpt-3.5-turbo',
+//             messages: messages,
             
-        });
+//         });
 
-        return chat.choices[0].message.content; // Return the response text
-    } catch (error) {
-        console.error("Error fetching data from OpenAI:", error);
-        throw new Error("Failed to process the request");
-    }
-}
+//         return chat.choices[0].message.content; // Return the response text
+//     } catch (error) {
+//         console.error("Error fetching data from OpenAI:", error);
+//         throw new Error("Failed to process the request");
+//     }
+// }
 
 
 

@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import fileUpload from 'express-fileupload';
-
+import OpenAI from 'openai';
 dotenv.config(); // Load environment variables
 
 const app = express(); // Express app
@@ -27,8 +27,8 @@ let aiProcessResult = "";
 let interviewQuestions = "";
 // Initialize Google Generative AI
 const genAI = new GoogleGenerativeAI(process.env.GENAI_API_KEY);
-
-// Gemini AI call function
+const openai = new OpenAI();//creating openAI instance
+//******************************* */ Gemini AI call function*****************************************/
 async function genAICall(userInput, promptData) {
     try {
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-8b" });
@@ -41,6 +41,41 @@ async function genAICall(userInput, promptData) {
         throw new Error("Failed to process the request");
     }
 }
+// ******************************* */ Gemini AI call function END*****************************************/
+
+
+
+
+
+//******************************* */ OpenAi Chat GPT call function*****************************************/
+
+
+// async function genAICall(userInput, promptData) {
+//     try {
+//         const messages = [
+//             { role: "system", content: promptData },
+//             { role: "user", content: userInput }
+//         ];
+
+//         const chat = await openai.chat.completions.create({
+//             model: 'gpt-4o',
+//             messages: messages,
+            
+//         });
+
+//         return chat.choices[0].message.content; // Return the response text
+//     } catch (error) {
+//         console.error("Error fetching data from OpenAI:", error);
+//         throw new Error("Failed to process the request");
+//     }
+// }
+
+
+
+
+//******************************* */ OpenAi Chat GPT call function*****************************************/
+
+
 
 // Route to check server status
 app.get('/', (req, res) => {

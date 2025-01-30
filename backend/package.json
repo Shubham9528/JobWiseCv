@@ -19,6 +19,6 @@
     "ejs": "^3.1.10",
     "express": "^4.21.1",
     "express-fileupload": "^1.5.1",
-    "openai": "^4.71.1"
+    "openai": "^4.81.0"
   }
 }

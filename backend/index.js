@@ -40,7 +40,7 @@ async function genAICall(userInput, promptData) {
         console.error("Error fetching data from OpenAI:", error);
 
         // Check if the error status is 503 (Service Unavailable)
-        if (error.response.status === 503) {
+        if (error.response.status === 503 || error.response.status === 500) {
             throw new Error(error.response.status); // Throws only the status code
         }
 

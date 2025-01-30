@@ -38,9 +38,16 @@ async function genAICall(userInput, promptData) {
         return result.response.text(); // Return response data
     } catch (error) {
         console.error("Error fetching data from OpenAI:", error);
+
+        // Check if the error status is 503 (Service Unavailable)
+        if (error.response.status === 503) {
+            throw new Error(error.response.status); // Throws only the status code
+        }
+
         throw new Error("Failed to process the request");
     }
 }
+
 // ******************************* */ Gemini AI call function END*****************************************/
 
 

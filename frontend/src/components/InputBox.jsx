@@ -19,29 +19,35 @@ export default function InputBox({ setInputBox }) {
     setIsLoading(true); // Show loading animation
 
     if (inputValue.length > 20) {
-      try {
-        const response = await axios.post(
-          `${process.env.REACT_APP_BACKEND_PORT}/process`,
-          {
-            data: inputValue,
-          }
-        );
-        setOutputValue(response.data); // Set the output with the response data
-        setShowButton(!showButton);
-        setStatus(
-          "These important keywords are extracted for your resume. Alternatively, create a resume using AI by clicking the button below."
-        );
-      } catch (error) {
-        console.error("Error:", error);
-        setStatus("Failed to process the request");
-      } finally {
-        setIsLoading(false); // Hide loading animation
-      }
+        try {
+            const response = await axios.post(
+                `${process.env.REACT_APP_BACKEND_PORT}/process`,
+                { data: inputValue }
+            );
+
+            setOutputValue(response.data); // Set the output with the response data
+            setShowButton(!showButton);
+            setStatus(
+                "These important keywords are extracted for your resume. Alternatively, create a resume using AI by clicking the button below."
+            );
+        } catch (error) {
+            console.error("Error:", error);
+
+            // Check if the error is a 503 Service Unavailable
+            if (error.response.status === 500 || error.response.status === 503) {
+                setStatus("Service is currently overloaded. Please try again later.");
+            } else {
+                setStatus("An error occurred. Please try again.");
+            }
+        } finally {
+            setIsLoading(false); // Hide loading animation
+        }
     } else {
-      window.alert("Please enter more than 20 characters");
-      setIsLoading(false); // Hide loading animation
+        window.alert("Please enter more than 20 characters");
+        setIsLoading(false); // Hide loading animation
     }
-  };
+};
+
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value); // Updates state as the user types

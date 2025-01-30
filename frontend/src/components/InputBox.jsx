@@ -40,7 +40,7 @@ export default function InputBox({ setInputBox }) {
                 setStatus("An error occurred. Please try again.");
             }
         } finally {
-            setIsLoading(false); // Hide loading animation
+            // setIsLoading(false); // Hide loading animation
         }
     } else {
         window.alert("Please enter more than 20 characters");

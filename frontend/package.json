@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "assert": "^2.1.0",
     "axios": "^1.1.2",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.6.1",
     "firebase": "^12.3.0",
     "https-browserify": "^1.0.0",
     "react": "^18.3.1",

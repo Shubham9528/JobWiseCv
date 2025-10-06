@@ -3,17 +3,18 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
+//  Use environment variables from your .env file
 const firebaseConfig = {
-  apiKey: "AIzaSyBwIt0YSCZXqPRfBtNunBuS6ELa8_62m5s",
-  authDomain: "jobwisecv.firebaseapp.com",
-  projectId: "jobwisecv",
-  storageBucket: "jobwisecv.appspot.com",
-  messagingSenderId: "573705387809",
-  appId: "1:573705387809:web:e7a9e95cc85e0e0a964860",
-  measurementId: "G-16HVJRM8N6"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
-// Initialize Firebase
+//  Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);

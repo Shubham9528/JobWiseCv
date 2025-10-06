@@ -10,7 +10,7 @@ export default function Login() {
   const { login, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/jobwisecv';
+  const from =  '/jobwisecv';
 
   async function handleSubmit(e) {
     e.preventDefault();

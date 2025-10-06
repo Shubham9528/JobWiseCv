@@ -124,12 +124,6 @@ export default function InputBox() {
                 value={outputValue}
                 readOnly
               />
-              <button
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-                onClick={() => navigate('/resume', { state: { keywords: outputValue } })}
-              >
-                Create Resume with AI
-              </button>
             </div>
           )}
         </div>

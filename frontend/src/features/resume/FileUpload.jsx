@@ -28,8 +28,8 @@ function FileUpload({ showButton }) {
   const sendTextToServer = async () => {
     try {
       setIsProcessing(true);
-      await resumeService.generateResume(extractedText);
-      navigate("/resume");
+      const result = await resumeService.generateResume(extractedText);
+      navigate('/dashboard', { state: { resumeData: result, source: 'resume-upload' } });
     } catch (error) {
       console.error("Error sending text to server:", error);
       alert("Failed to send resume to server. Please try again.");

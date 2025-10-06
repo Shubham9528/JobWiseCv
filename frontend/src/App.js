@@ -7,6 +7,7 @@ import Signup from './pages/Signup';
 import ForgotPassword from './pages/ForgotPassword';
 import ResumePage from './pages/ResumePage';
 import InputBox from './features/job-analysis/InputBox';
+import Dashboard from './components/dashboard/Dashboard';
 
 function App() {
   return (
@@ -20,6 +21,11 @@ function App() {
           <Route path="/jobwisecv" element={<InputBox />} />
           
           {/* Protected Routes */}
+          <Route path="/dashboard" element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } />
           <Route path="/resume" element={
             <ProtectedRoute>
               <ResumePage />

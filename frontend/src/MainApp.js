@@ -1,21 +1,19 @@
 import React from "react";
-import App from './App';
-import AiResume from './components/AiResume';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Footer from "./components/Footer";
+import HomePage from './pages/HomePage';
+import ResumePage from './pages/ResumePage';
+import Footer from "./components/layout/Footer";
+
 function MainApp() {
-   
     return (
-        <div>
-    <BrowserRouter>
-      <Routes>
-      <Route path="/" element={<App/>} />
-      <Route path="/aiResume" element={<AiResume />} />
-    </Routes>
-
-    </BrowserRouter>
-
-    <Footer />
+        <div className="min-h-screen bg-gray-50">
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/resume" element={<ResumePage />} />
+                </Routes>
+            </BrowserRouter>
+            <Footer />
         </div>
     );
 }

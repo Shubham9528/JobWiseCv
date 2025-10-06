@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { resumeService } from "../../services/api.service";
 
 function AiResume() {
   const [aiResponse, setAiResponse] = useState(
@@ -9,17 +9,12 @@ function AiResume() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `${process.env.REACT_APP_BACKEND_PORT}/aiResume`
-        );
-  
-        // Clean up data to remove unwanted characters (* and #)
-        const cleanedResume = response.data.data.replace(/[*#]/g, "");
-  
-        // Update state with cleaned data
+        const response = await resumeService.getAiResume();
+        const cleanedResume = response.data.replace(/[*#]/g, "");
         setAiResponse(cleanedResume);
       } catch (error) {
         console.error("Error fetching data:", error);
+        setAiResponse("Error loading resume. Please try again.");
       }
     };
   

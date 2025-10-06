@@ -1,40 +1,32 @@
 import React, { useState } from "react";
-import axios from "axios";
-import FileUpload from "./FileUpload";
+import { useNavigate } from "react-router-dom";
+import { resumeService } from "../../services/api.service";
+import FileUpload from "../resume/FileUpload";
 
-export default function InputBox({ setInputBox }) {
+export default function InputBox() {
   const [inputValue, setInputValue] = useState("");
-  const [outputValue, setOutputValue] = useState(""); // State to hold the output
+  const [outputValue, setOutputValue] = useState("");
   const [showButton, setShowButton] = useState(false);
-  const [status, setStatus] = useState(
-    "Paste Job Description here and click on submit"
-  );
-  const [isLoading, setIsLoading] = useState(false); // State to track loading status
+  const [status, setStatus] = useState("Paste Job Description here and click on submit");
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevents the page from reloading on submit
-    setInputBox(inputValue); // Passes the input value to the parent component
+    // setInputBox(inputValue); // No longer needed with new structure
     setInputValue("");
     setStatus("AI is analyzing your input, please wait...");
     setIsLoading(true); // Show loading animation
 
     if (inputValue.length > 20) {
       try {
-        const response = await axios.post(
-          `${process.env.REACT_APP_BACKEND_PORT}/process`,
-          {
-            data: inputValue,
-          }
-        );
-        setOutputValue(response.data); // Set the output with the response data
-        setShowButton(!showButton);
-        setStatus(
-          "These important keywords are extracted for your resume. Alternatively, create a resume using AI by clicking the button below."
-        );
+        const response = await resumeService.processJobDescription(inputValue);
+        setOutputValue(response);
+        setShowButton(true);
+        setStatus("Keywords extracted! Ready to build your resume.");
       } catch (error) {
         console.error("Error:", error);
         setStatus("AI processing failed. Please try again.");
-       
       } finally {
         setIsLoading(false); // Hide loading animation
       }
@@ -42,12 +34,6 @@ export default function InputBox({ setInputBox }) {
       window.alert("Please enter more than 20 characters");
       setIsLoading(false); // Hide loading animation
     }
-  };
-
-
-
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value); // Updates state as the user types
   };
 
   return (
@@ -80,7 +66,7 @@ export default function InputBox({ setInputBox }) {
                 rows="12"
                 className="w-full p-6 text-lg text-black rounded-xl border border-gray-600 focus:ring-4 focus:ring-indigo-500 focus:border-transparent outline-none resize-none transition-all"
                 value={inputValue}
-                onChange={handleInputChange}
+                onChange={(e) => setInputValue(e.target.value)}
                 required
               />
             </div>
@@ -102,6 +88,12 @@ export default function InputBox({ setInputBox }) {
                 value={outputValue}
                 readOnly
               />
+              <button
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                onClick={() => navigate('/resume', { state: { keywords: outputValue } })}
+              >
+                Create Resume with AI
+              </button>
             </div>
           )}
         </div>

@@ -19,10 +19,10 @@
 ## 🖥️ Phase 2: Dashboard UI (Week 2)
 
 ### 2.1 Dashboard Layout
-- [ ] Create responsive dashboard layout with sidebar
-- [ ] Implement dark/light theme toggle
-- [ ] Add user profile section
-- [ ] Set up navigation menu
+- [x] Create responsive dashboard layout with sidebar
+- [x] Implement dark/light theme toggle
+- [x] Add user profile section
+- [x] Set up navigation menu
 
 ### 2.2 Dashboard Components
 - [ ] ATS Score Card (showing resume match percentage)

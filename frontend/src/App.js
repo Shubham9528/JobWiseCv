@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
-import './App.css';
-import InputBox from './components/InputBox';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from './pages/HomePage';
+import ResumePage from './pages/ResumePage';
+import Footer from "./components/layout/Footer";
 
 function App() {
-    const [inputBox, setInputBox] = useState("");
-   
-
-    // Whenever aiResponse1 updates, update the root aiResponse
-//     React.useEffect(() => {
-//         setAiResponse(aiResponse1);
-//     }, [aiResponse1, setAiResponse]);
-     console.log(inputBox);
-   
     return (
-        <div className="App">
-            <InputBox setInputBox={setInputBox}  />
+        <div className="min-h-screen bg-gray-50">
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/resume" element={<ResumePage />} />
+                </Routes>
+            </BrowserRouter>
+            <Footer />
         </div>
     );
 }

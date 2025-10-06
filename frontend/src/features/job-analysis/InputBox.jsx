@@ -119,11 +119,18 @@ export default function InputBox() {
           </button>
         )}
       </form>
-
       {/* File Upload Section */}
-      <div className="mt-12 animate-fadeInUp delay-200">
+     {
+      showButton && (
+        
+        <div className="mt-12 animate-fadeInUp delay-200">
         <FileUpload showButton={showButton} />
       </div>
+      )
+      
+     }
+      
+      
     </div>
   );
 }

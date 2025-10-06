@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { resumeService } from "../../services/api.service";
 import FileUpload from "../resume/FileUpload";
+import { useAuth } from "../../contexts/AuthContext";
 
 export default function InputBox() {
   const [inputValue, setInputValue] = useState("");
@@ -10,6 +11,16 @@ export default function InputBox() {
   const [status, setStatus] = useState("Paste Job Description here and click on submit");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { logout, currentUser } = useAuth();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate('/login');
+    } catch (error) {
+      console.error('Failed to logout:', error);
+    }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevents the page from reloading on submit
@@ -37,7 +48,32 @@ export default function InputBox() {
   };
 
   return (
-    <div className="flex flex-col items-center p-8 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 min-h-screen text-gray-100 font-sans">
+    <div className="flex flex-col items-center p-8 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 min-h-screen text-gray-100 font-sans relative">
+      {/* Top Navigation */}
+      {currentUser && (
+        <>
+          {/* Welcome Text - Top Left */}
+          <div className="absolute top-4 left-4">
+            <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500">
+              Welcome, {currentUser.displayName || currentUser.email?.split('@')[0] || 'User'}
+            </span>
+          </div>
+          
+          {/* Logout Button - Top Right */}
+          <div className="absolute top-4 right-4">
+            <button
+              onClick={handleLogout}
+              className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-lg transition-all duration-200 flex items-center space-x-2 shadow-lg"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+              <span>Logout</span>
+            </button>
+          </div>
+        </>
+      )}
+      
       {/* Main Heading */}
       <h1 className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 animate-pulse mb-4 tracking-wide">
         JobWiseCv.ai

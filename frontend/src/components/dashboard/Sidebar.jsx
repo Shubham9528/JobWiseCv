@@ -13,12 +13,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   ];
 
   return (
-    <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-gray-800 shadow-lg transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0 lg:flex-shrink-0`}>
-      <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200 dark:border-gray-700">
-        <h1 className="text-xl font-bold text-gray-800 dark:text-white">JobWiseCV</h1>
+    <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0 lg:flex-shrink-0`}>
+      <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200">
+        <h1 className="text-xl font-bold text-gray-800">JobWiseCV</h1>
         <button
           onClick={() => setSidebarOpen(false)}
-          className="lg:hidden text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+          className="lg:hidden text-gray-500 hover:text-gray-700"
         >
           ✕
         </button>
@@ -32,8 +32,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               to={item.href}
               className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors ${
                 location.pathname === item.href
-                  ? 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300'
-                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  ? 'bg-indigo-100 text-indigo-700'
+                  : 'text-gray-700 hover:bg-gray-100'
               }`}
             >
               <span className="mr-3">{item.icon}</span>

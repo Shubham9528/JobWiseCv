@@ -45,7 +45,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="flex h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       
       <div className="flex-1 flex flex-col overflow-hidden">

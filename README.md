@@ -2,14 +2,13 @@
 
 Welcome to **JobWiseCV.ai**! This web application leverages AI to help users optimize their resumes for ATS (Applicant Tracking System) compatibility. It analyzes job descriptions to extract crucial keywords, automatically adjusts resumes to include relevant achievements, and presents a refined document, enhancing job-seekers' chances of getting noticed by recruiters.
 
-![image](https://github.com/user-attachments/assets/7d873d0f-7ba9-44cd-aee6-59785caf6d5c)
-![image](https://github.com/user-attachments/assets/2c47917d-1f3a-4798-812c-97a9975917b4)
-![image](https://github.com/user-attachments/assets/beafab4f-5465-4959-b02b-452ac74e0919)
-![image](https://github.com/user-attachments/assets/9788f8e5-2e7d-450b-b171-7095913ed934)
+<img width="1027" height="839" alt="image" src="https://github.com/user-attachments/assets/06edde71-6432-4504-8350-49d773e24c12" />
 
+<img width="1896" height="828" alt="image" src="https://github.com/user-attachments/assets/a8a252e4-abbd-423f-81c2-1ded3465c308" />
+
+<img width="1904" height="866" alt="image" src="https://github.com/user-attachments/assets/85961dd9-4151-4003-b58b-20debaadd55c" />
 # 🔥Result
-![image](https://github.com/user-attachments/assets/240dfaa9-98a7-45ff-b555-8f388b6fad9d)
-
+<img width="1903" height="923" alt="image" src="https://github.com/user-attachments/assets/cf361388-3881-40e4-96e3-723eee81fe13" />
 
 
 ## Table of Contents 📑

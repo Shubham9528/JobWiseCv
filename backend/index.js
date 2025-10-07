@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import routes from './routes/index.js';
+import routes from './src/routes/index.js';
 
 dotenv.config();
 

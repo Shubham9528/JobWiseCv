@@ -5,7 +5,6 @@ import aiConfig from '../config/ai.config.js';
 class AIService {
   constructor() {
     this.openai = new OpenAI({ apiKey: aiConfig.openai.apiKey });
-    console.log(aiConfig.openai.apiKey);
     this.genAI = new GoogleGenerativeAI(aiConfig.google.apiKey);
   }
 

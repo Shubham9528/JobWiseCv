@@ -9,7 +9,7 @@ export const aiConfig = {
   },
   google: {
     apiKey: process.env.GENAI_API_KEY,
-    model: 'gemini-2.0-flash-exp',
+    model: '	gemini-2.0-flash',
   }
 };
 

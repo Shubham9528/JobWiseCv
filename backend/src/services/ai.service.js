@@ -34,18 +34,18 @@ class AIService {
 
   async extractKeywords(jobDescription) {
     const prompt = "What are the keywords in this job description? Rank the keyword from greatest importance to least importance according to job description:";
-    return await this.generateWithOpenAI(prompt, jobDescription);
+    return await this.generateWithGoogle(prompt, jobDescription);
   }
 
   async generateResume(userInfo, keywords) {
     const prompt = "create a resume with the following information:";
     const input = `${userInfo}. Keywords to include: ${keywords}`;
-    return await this.generateWithOpenAI(prompt, input);
+    return await this.generateWithGoogle(prompt, input);
   }
 
   async enhanceResume(resume, keywords) {
     const prompt = "Update the resume to include bullet pointed achievement each. Include metrics and quantifiable data. Each section should include at least one keyword from resume. Here is the list of keywords to use:";
-    return await this.generateWithOpenAI(prompt, `${resume} Keywords: ${keywords}`);
+    return await this.generateWithGoogle(prompt, `${resume} Keywords: ${keywords}`);
   }
 
   async generateInterviewQuestions(resume) {

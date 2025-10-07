@@ -52,12 +52,11 @@ const Dashboard = () => {
         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
         
         <main className="p-4 sm:p-6 lg:p-8 overflow-y-auto">
+          <StatsCard stats={stats} />
           {/* Display job analysis and AI resume results */}
           {(resumeData || aiResumeData) && (
             <JobAnalysis analysisData={resumeData} aiResumeData={aiResumeData} />
           )}
-          
-          <StatsCard stats={stats} />
           <RecentActivity activities={recentActivity} />
         </main>
       </div>

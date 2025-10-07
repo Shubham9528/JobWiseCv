@@ -6,8 +6,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
 
   const navigation = [
     { name: 'Dashboard', href: '/dashboard', icon: '📊' },
-    { name: 'Job Analysis', href: '/jobwisecv', icon: '🔍' },
-    { name: 'Resume Builder', href: '/resume', icon: '📝' },
+    // { name: 'Job Analysis', href: '/jobwisecv', icon: '🔍' },
+    // { name: 'Resume Builder', href: '/resume', icon: '📝' },
     { name: 'Reports', href: '/reports', icon: '📈' },
     { name: 'Settings', href: '/settings', icon: '⚙️' },
   ];

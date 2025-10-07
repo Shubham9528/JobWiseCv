@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext';
+// import { useAuth } from '../../contexts/AuthContext';
 import { resumeService } from '../../services/api.service';
 import Sidebar from './Sidebar';
 import Header from './Header';
@@ -11,7 +11,7 @@ import JobAnalysis from './JobAnalysis';
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [aiResumeData, setAiResumeData] = useState(null);
-  const { currentUser } = useAuth();
+  // const { currentUser } = useAuth();
   const location = useLocation();
   const { resumeData } = location.state || {};
 

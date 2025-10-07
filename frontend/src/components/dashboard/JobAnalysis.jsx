@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const JobAnalysis = ({ analysisData, aiResumeData }) => {
   if (!analysisData && !aiResumeData) return null;
 

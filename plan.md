@@ -30,10 +30,11 @@
 ## 📊 Phase 3: Core Features (Week 3-4)
 
 ### 3.1 Resume Analysis
-- [ ] File upload and parsing (PDF/DOCX)
-- [ ] Resume content extraction
-- [ ] ATS scoring algorithm
-- [ ] Keyword analysis
+- [x] File upload and parsing (PDF) 
+  - *Note: DOCX support pending*
+- [x] Resume content extraction
+- [x] ATS scoring algorithm
+- [x] Keyword analysis
 
 ### 3.2 AI-Powered Features
 - [ ] Resume enhancement suggestions

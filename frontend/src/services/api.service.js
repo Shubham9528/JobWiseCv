@@ -40,18 +40,8 @@ export const resumeService = {
     return response.data;
   },
 
-  async generateInterviewQuestions() {
-    const response = await api.post('/api/generate-questions');
-    return response.data;
-  },
-
   async getAiResume() {
     const response = await api.get('/api/ai-resume');
-    return response.data;
-  },
-
-  async getInterviewQuestions() {
-    const response = await api.get('/api/interview-questions');
     return response.data;
   }
 };

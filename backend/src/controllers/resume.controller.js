@@ -61,32 +61,9 @@ export const enhanceResume = async (req, res) => {
   }
 };
 
-export const generateInterviewQuestions = async (req, res) => {
-  try {
-    if (!global.currentResume) {
-      return res.status(400).json({ error: 'No resume found. Please generate resume first.' });
-    }
-
-    const questions = await aiService.generateInterviewQuestions(global.currentResume);
-    global.interviewQuestions = questions;
-    
-    res.json({ data: questions });
-  } catch (error) {
-    console.error('Error generating questions:', error);
-    res.status(500).json({ error: 'Failed to generate interview questions' });
-  }
-};
-
 export const getAiResume = (req, res) => {
   if (!global.currentResume) {
     return res.status(404).json({ error: 'No resume generated yet' });
   }
   res.json({ data: global.currentResume });
-};
-
-export const getInterviewQuestions = (req, res) => {
-  if (!global.interviewQuestions) {
-    return res.status(404).json({ error: 'No interview questions generated yet' });
-  }
-  res.json({ data: global.interviewQuestions });
 };

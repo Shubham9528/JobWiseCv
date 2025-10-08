@@ -42,12 +42,12 @@ function FileUpload({ showButton }) {
     <div className="mt-6 w-full max-w-2xl">
       <label
         htmlFor="myfile"
-        className="block text-lg font-semibold text-indigo-400 mb-2"
+        className="block text-lg font-semibold text-black mb-2"
       >
         Upload Resume
       </label>
 
-      <div className="flex items-center mb-4 text-yellow-600">
+      <div className="flex items-center mb-4 text-black">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-5 h-5 mr-2"
@@ -69,7 +69,7 @@ function FileUpload({ showButton }) {
         type="file"
         id="myfile"
         name="myfile"
-        className="block w-full text-base text-gray-100 border border-gray-600 rounded-md p-3 mb-4 cursor-pointer focus:ring-4 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
+        className="block w-full text-base text-black border border-gray-600 rounded-md p-3 mb-4 cursor-pointer focus:ring-4 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
         accept=".pdf"
         onChange={extractText}
       />
@@ -77,7 +77,7 @@ function FileUpload({ showButton }) {
       {isProcessing ? (
         <div className="flex flex-col items-center">
           <div className="loader border-t-4 border-b-4 border-indigo-500 rounded-full w-12 h-12 animate-spin"></div>
-          <p className="text-gray-300 mt-3 text-lg">AI is processing... Please wait.</p>
+          <p className="text-black mt-3 text-lg">AI is processing... Please wait.</p>
         </div>
       ) : (
         <button

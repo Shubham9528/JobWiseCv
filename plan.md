@@ -26,10 +26,6 @@
 
 ### 2.2 Dashboard Components
 - [ ] ATS Score Card (showing resume match percentage)
-- [ ] Resume Preview Panel
-- [ ] Recommendations Section
-- [ ] Recent Activity Feed
-- [ ] Quick Actions Panel
 
 ## 📊 Phase 3: Core Features (Week 3-4)
 

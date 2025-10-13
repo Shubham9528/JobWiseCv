@@ -19,7 +19,7 @@ const port = process.env.BACKEND_SERVER_PORT_NO || 4000;
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://job-wise-cv-cxtd.vercel.app/',
+    'https://job-wise-cv-cxtd.vercel.app',
     'http://localhost:4000'
   ],
   credentials: true,

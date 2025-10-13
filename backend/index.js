@@ -16,7 +16,15 @@ const app = express();
 const port = process.env.BACKEND_SERVER_PORT_NO || 4000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://job-wise-cv-cxtd.vercel.app/',
+    'http://localhost:4000'
+  ],
+  credentials: true,
+  optionsSuccessStatus: 200
+}));
 app.use(express.json());
 app.use(fileUpload({
   limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit

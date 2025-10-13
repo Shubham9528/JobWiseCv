@@ -2,6 +2,7 @@ import aiService from '../services/ai.service.js';
 
 export const processJobDescription = async (req, res) => {
   try {
+    // Job description data
     const { data } = req.body;
     
     if (!data || data.length < 20) {
